@@ -1,8 +1,5 @@
 package stoptheworld;
 
-/**
- * Capture real stop-the-world ConcurrentMarkSweep times!
- */
 public class Example {
     public static void main(String[] args) throws Exception {
 

@@ -12,6 +12,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
+ * Capture real stop-the-world ConcurrentMarkSweep times!
+ * Code:
+ * - Create an instance of this object, pass your GcNotificationInfoListener instance in the constructor.
+ * - Start the instance.
+ * Running:
+ * - Run the JVM with: -XX:+UseConcMarkSweepGC
  */
 public class GcNotificationUtil {
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
