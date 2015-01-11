@@ -3,12 +3,12 @@ package stoptheworld;
 /**
  * Capture real stop-the-world ConcurrentMarkSweep times!
  */
-public class Main {
+public class Example {
     public static void main(String[] args) throws Exception {
 
         GcNotificationUtil gcNotificationUtil = new GcNotificationUtil((info, stw) -> {
             if (info.getGcName().equals("ConcurrentMarkSweep")) {
-                System.out.println(info.getGcName() + ": " + info.getGcInfo().getDuration() + " stw: " + stw);
+                System.out.println(info.getGcName() + ": " + info.getGcInfo().getDuration() + " ms stw: " + stw + " ms");
             }
         });
 
