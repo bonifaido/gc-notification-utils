@@ -3,5 +3,7 @@ Capture real stop-the-world ConcurrentMarkSweep times, instead of wall-clock tim
 
 With this tool you can measure how long your application staled during the two stop-world-phases of CMS (initial-mark, rescan).
 
-For background see: https://blogs.oracle.com/jonthecollector/entry/the_unspoken_cms_and_printgcdetails
+For background see:
+- https://blogs.oracle.com/jonthecollector/entry/hey_joe_phases_of_cms
+- https://blogs.oracle.com/jonthecollector/entry/the_unspoken_cms_and_printgcdetails
 
