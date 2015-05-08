@@ -12,9 +12,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * Capture real stop-the-world ConcurrentMarkSweep times!
+ * Capture real stop-the-world ConcurrentMarkSweep times programmatically!
  * Code:
- * - Create an instance of this object, pass your GcNotificationInfoListener instance in the constructor.
+ * - Create an instance of this class, pass your GcNotificationInfoListener instance in the constructor.
  * - Start the instance.
  * Running:
  * - Run the JVM with: -XX:+UseConcMarkSweepGC
@@ -23,7 +23,7 @@ public class GcNotificationUtil {
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
     private final Disruptor<GcNotificationEvent> disruptor;
 
-    GcNotificationUtil(GcNotificationInfoListener listener) {
+    public GcNotificationUtil(GcNotificationInfoListener listener) {
 
         disruptor = new Disruptor<>(GcNotificationEventFactory.INSTANCE, 64, executor, ProducerType.SINGLE, new BlockingWaitStrategy());
 
