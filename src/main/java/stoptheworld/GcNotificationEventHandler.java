@@ -10,9 +10,9 @@ import javax.management.openmbean.CompositeData;
  */
 class GcNotificationEventHandler implements EventHandler<GcNotificationEvent> {
 
-    private final GcNotificationInfoListener delegate;
+    private final GcStwNotificationInfoListener delegate;
 
-    GcNotificationEventHandler(GcNotificationInfoListener delegate) {
+    GcNotificationEventHandler(GcStwNotificationInfoListener delegate) {
         this.delegate = delegate;
     }
 

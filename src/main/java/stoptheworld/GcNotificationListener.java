@@ -15,7 +15,8 @@ class GcNotificationListener implements NotificationListener {
     private final RingBuffer<GcNotificationEvent> disruptor;
     private long lastCollectionTime;
 
-    public GcNotificationListener(GarbageCollectorMXBean gcBean, RingBuffer<GcNotificationEvent> disruptor) {
+    public GcNotificationListener(GarbageCollectorMXBean gcBean,
+                                  RingBuffer<GcNotificationEvent> disruptor) {
         this.gcBean = gcBean;
         this.disruptor = disruptor;
         this.lastCollectionTime = gcBean.getCollectionTime();

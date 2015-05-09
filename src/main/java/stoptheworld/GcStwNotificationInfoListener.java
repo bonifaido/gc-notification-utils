@@ -2,7 +2,7 @@ package stoptheworld;
 
 import com.sun.management.GarbageCollectionNotificationInfo;
 
-public interface GcNotificationInfoListener {
+public interface GcStwNotificationInfoListener {
 
     String CONCURRENT_MARK_SWEEP = "ConcurrentMarkSweep";
 
