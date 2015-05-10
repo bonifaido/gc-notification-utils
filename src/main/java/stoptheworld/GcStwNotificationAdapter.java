@@ -19,6 +19,9 @@ import java.util.concurrent.Executors;
  * - Run the JVM with: -XX:+UseConcMarkSweepGC
  */
 public final class GcStwNotificationAdapter {
+
+    private static final String CONCURRENT_MARK_SWEEP = "ConcurrentMarkSweep";
+
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
     private final Disruptor<GcNotificationEvent> disruptor;
 
@@ -35,9 +38,11 @@ public final class GcStwNotificationAdapter {
     }
 
     private void addListener(GarbageCollectorMXBean gcBean) {
-        NotificationEmitter emitter = (NotificationEmitter) gcBean;
-        GcNotificationListener listener = new GcNotificationListener(gcBean, disruptor.getRingBuffer());
-        emitter.addNotificationListener(listener, GcNotificationFilter.INSTANCE, null);
+        if (gcBean.getName().equals(CONCURRENT_MARK_SWEEP)) {
+            NotificationEmitter emitter = (NotificationEmitter) gcBean;
+            GcNotificationListener listener = new GcNotificationListener(gcBean, disruptor.getRingBuffer());
+            emitter.addNotificationListener(listener, GcNotificationFilter.INSTANCE, null);
+        }
     }
 
     public void stop() {
